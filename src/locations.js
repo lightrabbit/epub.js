@@ -319,6 +319,7 @@ class Locations {
 
 	/**
 	 * Get the current location
+	 * @type {number}
 	 */
 	get currentLocation() {
 		return this._current;
@@ -326,6 +327,7 @@ class Locations {
 
 	/**
 	 * Set the current location
+	 * @type {number}
 	 */
 	set currentLocation(curr) {
 		this.setCurrent(curr);
