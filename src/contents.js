@@ -4,6 +4,7 @@ import EpubCFI from "./epubcfi";
 import Mapping from "./mapping";
 import {replaceLinks} from "./utils/replacements";
 import { EVENTS, DOM_EVENTS } from "./utils/constants";
+import ePub from "./epub";
 
 const hasNavigator = typeof (navigator) !== "undefined";
 
@@ -46,6 +47,7 @@ class Contents {
 
 	/**
 		* Get DOM events that are listened for and passed along
+		* @type {string[]}
 		*/
 	static get listenedEvents() {
 		return DOM_EVENTS;
