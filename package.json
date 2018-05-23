@@ -3,6 +3,7 @@
   "version": "0.3.60",
   "description": "Parse and Render Epubs",
   "main": "lib/index.js",
+  "types": "src/index.d.ts",
   "module": "src/index.js",
   "repository": "https://github.com/futurepress/epub.js",
   "directories": {
