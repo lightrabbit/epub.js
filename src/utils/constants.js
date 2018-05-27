@@ -52,3 +52,5 @@ export const EVENTS = {
     UPDATED : "updated"
   }
 }
+
+export const VERSION = 0.3;

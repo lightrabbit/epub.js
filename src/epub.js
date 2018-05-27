@@ -4,6 +4,7 @@ import CFI from "./epubcfi";
 import Contents from "./contents";
 import * as utils from "./utils/core";
 import '../libs/url/url-polyfill'
+import { VERSION } from "./utils/constants";
 
 import IframeView from "./managers/views/iframe";
 import DefaultViewManager from "./managers/default";
@@ -20,9 +21,9 @@ function ePub(url, options) {
 	return new Book(url, options);
 }
 
-ePub.VERSION = "0.3";
+ePub.VERSION = VERSION;
 
-if (typeof(global) !== "undefined") {
+if (typeof (global) !== "undefined") {
 	global.EPUBJS_VERSION = ePub.VERSION;
 }
 

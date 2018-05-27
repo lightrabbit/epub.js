@@ -1,10 +1,9 @@
 import EventEmitter from "event-emitter";
-import {isNumber, prefixed, borders, defaults} from "./utils/core";
+import { isNumber, prefixed, borders, defaults } from "./utils/core";
 import EpubCFI from "./epubcfi";
 import Mapping from "./mapping";
-import {replaceLinks} from "./utils/replacements";
-import { EVENTS, DOM_EVENTS } from "./utils/constants";
-import ePub from "./epub";
+import { replaceLinks } from "./utils/replacements";
+import { EVENTS, DOM_EVENTS, VERSION } from "./utils/constants";
 
 const hasNavigator = typeof (navigator) !== "undefined";
 
@@ -40,7 +39,7 @@ class Contents {
 		this.sectionIndex = sectionIndex || 0;
 		this.cfiBase = cfiBase || "";
 
-		this.epubReadingSystem("epub.js", ePub.VERSION);
+		this.epubReadingSystem("epub.js", VERSION);
 
 		this.listeners();
 	}
