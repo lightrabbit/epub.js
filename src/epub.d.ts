@@ -7,5 +7,8 @@ import Book from './book';
  * @example ePub("/path/to/book.epub", {})
  */
 declare function ePub(url: string | ArrayBuffer, options: any): Book;
+declare namespace ePub {
+    var VERSION: string;
+}
 
 export default ePub;

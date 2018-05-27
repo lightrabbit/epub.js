@@ -4,7 +4,25 @@ import Contents from "./contents";
 import Annotations from "./annotations";
 import Themes from "./themes";
 
-
+export declare interface IRenditionOptions {
+    width?: number;
+    height?: number;
+    /** class for the cfi parser to ignore */
+    ignoreClass?: string;
+    manager?: "default" | "continuous";
+    view?: "iframe" | "inline";
+    /** layout to force */
+    layout?: string;
+    /** force spread value */
+    spread?: string;
+    /** overridden by spread: none (never) / both (always) */
+    minSpreadWidth?: number;
+    /** url of stylesheet to be injected */
+    stylesheet?: string;
+    /** url of script to be injected */
+    script?: string;
+    flow?: string;
+}
 
 /**
  * Displays an Epub as a series of Views for each Section.
@@ -18,25 +36,9 @@ import Themes from "./themes";
  * @param {string} [options.ignoreClass] class for the cfi parser to ignore
  * @param {string | function | object} [options.manager='default']
  * @param {string | function} [options.view='iframe']
- * @param {string} [options.layout] layout to force
- * @param {string} [options.spread] force spread value
- * @param {number} [options.minSpreadWidth] overridden by spread: none (never) / both (always)
- * @param {string} [options.stylesheet] url of stylesheet to be injected
- * @param {string} [options.script] url of script to be injected
  */
 declare class Rendition {
-    constructor(book: Book, options?: {
-        width: number;
-        height: number;
-        ignoreClass: string;
-        manager: string | any | any;
-        view: string | any;
-        layout: string;
-        spread: string;
-        minSpreadWidth: number;
-        stylesheet: string;
-        script: string;
-    });
+    constructor(book: Book, options?: IRenditionOptions);
 
     /**
      * Adds Hook methods to the Rendition prototype

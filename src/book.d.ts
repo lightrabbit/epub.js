@@ -10,7 +10,7 @@ import Rendition from "./rendition";
 import Archive from "./archive";
 import EpubCFI from "./epubcfi";
 import Section from "./section";
-
+import { IRenditionOptions } from "./rendition";
 /**
  * An Epub representation with methods for the loading, parsing and manipulation
  * of its contents.
@@ -112,7 +112,7 @@ declare class Book {
      * @param  {object} [options]
      * @return {Rendition}
      */
-    renderTo(element: any | string, options?: any): Rendition;
+    renderTo(element: any | string, options?: IRenditionOptions): Rendition;
 
     /**
      * Set if request should use withCredentials
