@@ -13,14 +13,14 @@ declare class Section {
      * @param  {method} _request a request method to use for loading
      * @return {document} a promise with the xml document
      */
-    load(_request: any): any;
+    load(_request?: any): any;
 
     /**
      * Render the contents of a section
      * @param  {method} _request a request method to use for loading
      * @return {string} output a serialized XML Document
      */
-    render(_request: any): string;
+    render(_request?: any): PromiseLike<string>;
 
     /**
      * Find a string in a section

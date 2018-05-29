@@ -44,27 +44,23 @@ declare class Rendition {
      * Adds Hook methods to the Rendition prototype
      * @member {object} hooks
      * @property {Hook} hooks.content
-     * @memberof Rendition
      */
-    static hooks: any;
+    hooks: any;
 
     /**
      * @member {Themes} themes
-     * @memberof Rendition
      */
-    static themes: Themes;
+    themes: Themes;
 
     /**
      * @member {Annotations} annotations
-     * @memberof Rendition
      */
-    static annotations: Annotations;
+    annotations: Annotations;
 
     /**
      * @member {promise} started returns after the rendition has started
-     * @memberof Rendition
      */
-    static started: Promise<any>;
+    started: Promise<any>;
 
     /**
      * Set the manager function

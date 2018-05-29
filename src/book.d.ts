@@ -38,34 +38,29 @@ declare class Book {
     });
 
     /**
-     * @member {promise} opened returns after the book is loaded
-     * @memberof Book
+     * opened returns after the book is loaded
      */
-    static opened: Promise<any>;
+    opened: Promise<any>;
 
     /**
-     * @member {Spine} spine
-     * @memberof Book
+     *
      */
-    static spine: Spine;
+    spine: Spine;
 
     /**
-     * @member {Locations} locations
-     * @memberof Book
+     * locations
      */
-    static locations: Locations;
+    locations: Locations;
 
     /**
      * @member {Navigation} navigation
-     * @memberof Book
      */
-    static navigation: Navigation;
+    navigation: Navigation;
 
     /**
      * @member {PageList} pagelist
-     * @memberof Book
      */
-    static pagelist: PageList;
+    pagelist: PageList;
 
     /**
      * Open a epub or url
