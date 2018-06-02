@@ -40,8 +40,9 @@ declare class Book {
     /**
      * opened returns after the book is loaded
      */
-    opened: Promise<any>;
-
+    opened: Promise<this>;
+    
+    isOpen: boolean;
     /**
      *
      */
