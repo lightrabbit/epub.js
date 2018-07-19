@@ -2,7 +2,7 @@ import * as EventEmitter from "event-emitter";
 import Spine from "./spine";
 import Locations from "./locations";
 import Container from "./container";
-import Packaging from "./packaging";
+import Packaging, { IPackage } from "./packaging";
 import Navigation from "./navigation";
 import Resources from "./resources";
 import PageList from "./pagelist";
@@ -41,7 +41,7 @@ declare class Book {
      * opened returns after the book is loaded
      */
     opened: Promise<this>;
-    
+
     isOpen: boolean;
     /**
      *
@@ -62,6 +62,10 @@ declare class Book {
      * @member {PageList} pagelist
      */
     pagelist: PageList;
+
+    package: IPackage | Packaging;
+
+    packaging: Packaging;
 
     /**
      * Open a epub or url
