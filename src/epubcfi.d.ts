@@ -14,8 +14,10 @@
  * @param {string} [ignoreClass] class to ignore when parsing DOM
  */
 declare class EpubCFI {
-    constructor(cfiFrom?: string | any | any, base?: string | any, ignoreClass?: string);
-
+    constructor(cfiFrom?: string | Range | Node, base?: string | any, ignoreClass?: string);
+    path: IPath;
+    start: IPath | null;
+    end: IPath | null;
     /**
      * Parse a cfi string to a CFI object representation
      * @param {string} cfiStr
@@ -42,7 +44,7 @@ declare class EpubCFI {
      * @param {string} [ignoreClass]
      * @returns {object} cfi
      */
-    fromRange(range: any, base: string | any, ignoreClass?: string): any;
+    fromRange(range: Range, base: string | any, ignoreClass?: string): any;
 
     /**
      * Create a CFI object from a Node
@@ -51,7 +53,7 @@ declare class EpubCFI {
      * @param {string} [ignoreClass]
      * @returns {object} cfi
      */
-    fromNode(anchor: any, base: string | any, ignoreClass?: string): any;
+    fromNode(anchor: Node, base: string | any, ignoreClass?: string): any;
 
     /**
      * Creates a DOM range representing a CFI
@@ -59,7 +61,7 @@ declare class EpubCFI {
      * @param {string} [ignoreClass]
      * @return {Range}
      */
-    toRange(_doc: any, ignoreClass?: string): any;
+    toRange(_doc: Document, ignoreClass?: string): Range;
 
     /**
      * Check if a string is wrapped with "epubcfi()"
@@ -74,6 +76,29 @@ declare class EpubCFI {
      */
     collapse(toStart?: boolean): void;
 
+
+    pathTo(node: Node, offset: number | null, ignoreClass?: string): IPath;
+    filteredStep(node: Node, ignoreClass?: string): IStep;
+    step(node: Node): IStep;
+
+    findNode(steps: IStep[], _doc: Document, ignoreClass?: string): Node;
+    stepsToXpath(steps: IStep[]): string;
+    walkToNode(steps: IStep[], _doc: Document, ignoreClass?: string): Node;
+}
+
+export interface IStep {
+    id?: string,
+    tagName?: string,
+    type: "text" | "element",
+    index: number
+}
+export interface ITerminal {
+    offset: number | null;
+    assertion: RegExpMatchArray | null;
+}
+export interface IPath {
+    steps: IStep[];
+    terminal: ITerminal | null;
 }
 
 export default EpubCFI;

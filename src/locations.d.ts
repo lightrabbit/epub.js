@@ -8,14 +8,15 @@ import Spine from "./spine";
  * @param {request} request
  */
 declare class Locations {
-    constructor(spine: Spine, request: any);
+    _locations: string[];
 
+    constructor(spine: Spine, request: any);
     /**
      * Load all of sections in the book to generate locations
      * @param  {int} chars how many chars to split on
      * @return {object} locations
      */
-    generate(chars: any): any;
+    generate(chars?: number): PromiseLike<string[]>;
 
     /**
      * Get a location from an EpubCFI
@@ -56,13 +57,13 @@ declare class Locations {
      * Load locations from JSON
      * @param {json} locations
      */
-    load(locations: any): void;
+    load(locations: string|string[]): void;
 
     /**
      * Save locations to JSON
      * @return {json}
      */
-    save(): any;
+    save(): string;
 
     /**
      * Get the current location
