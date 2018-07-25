@@ -1,8 +1,13 @@
+import { IDictionary } from './common'
 import Section from "./section";
 /**
  * A collection of Spine Items
  */
 declare class Spine {
+    spineItems: Section[];
+    spineByHref: IDictionary<number>;
+    spineById: IDictionary<number>;
+
     constructor();
 
     /**

@@ -1,11 +1,34 @@
+import { IDictionary } from './common';
+
+interface INavItem {
+    id?: string;
+    href: string;
+    label: string;
+    subitems: INavItem[]; //TODO: 需要进一步确认
+    parent: INavItem;//TODO: 需要进一步确认
+}
+
+interface ILandmark {
+    href: string;
+    label: string;
+    type?: string;
+}
 
 /**
  * Navigation Parser
  * @param {document} xml navigation html / xhtml / ncx
  */
 declare class Navigation {
-    constructor(xml: any);
+    toc: INavItem[];
+    tocByHref: IDictionary<INavItem>;
+    tocById: IDictionary<INavItem>;
 
+    landmarks: ILandmark[];
+    landmarksByType: IDictionary<ILandmark>;
+
+    length: number;
+
+    constructor(xml: any);
     /**
      * Parse out the navigation items
      * @param {document} xml navigation html / xhtml / ncx
